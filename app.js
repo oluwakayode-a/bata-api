@@ -6,11 +6,12 @@ import passport from "passport"
 import passportAuth from "./utils/passport-auth.js"
 
 dotenv.config()
+var cors = require('cors')
 
 const app = express()
 
+app.use(cors())
 app.use(express.json())
-
 app.use(passport.initialize())
 passportAuth(passport)
 

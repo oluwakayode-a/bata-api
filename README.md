@@ -55,6 +55,7 @@
 # Express Concepts
 --> File Uploads with Multer.js
 --> Static and Media File Storage
+--> Handling CORS Errors (https://expressjs.com/en/resources/middleware/cors.html)
 
 
 
