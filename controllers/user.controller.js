@@ -32,12 +32,6 @@ export const userRegister = async (req, res) => {
         }
     })
 
-    const userCart = await cartClient.create({
-        data: {
-            user: user
-        }
-    })
-
     res.status(201).json({data : user})
 }
 
