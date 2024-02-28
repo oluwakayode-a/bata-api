@@ -1,4 +1,5 @@
 import express, { Router } from "express"
+import cors from "cors"
 import dotenv from "dotenv"
 import { userRegister, loginUser } from "./controllers/user.controller.js"
 import { createProduct, deleteProductById, getProductById, listProducts, updateProduct } from "./controllers/product.controller.js"
@@ -6,7 +7,7 @@ import passport from "passport"
 import passportAuth from "./utils/passport-auth.js"
 
 dotenv.config()
-var cors = require('cors')
+
 
 const app = express()
 
