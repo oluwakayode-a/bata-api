@@ -7,6 +7,8 @@ import { validate, userSchema } from "../utils/validators.js"
 const client = new PrismaClient()
 const userClient = client.user
 
+const cartClient = client.cart
+
 const { sign } = jsonwebtoken
 
 
@@ -27,6 +29,12 @@ export const userRegister = async (req, res) => {
             name: body.name,
             email: body.email,
             password: password
+        }
+    })
+
+    const userCart = await cartClient.create({
+        data: {
+            user: user
         }
     })
 

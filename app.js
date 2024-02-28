@@ -1,7 +1,7 @@
 import express, { Router } from "express"
 import dotenv from "dotenv"
 import { userRegister, loginUser } from "./controllers/user.controller.js"
-import { createProduct } from "./controllers/product.controller.js"
+import { createProduct, deleteProductById, getProductById, listProducts, updateProduct } from "./controllers/product.controller.js"
 import passport from "passport"
 import passportAuth from "./utils/passport-auth.js"
 
@@ -24,11 +24,26 @@ function testAuth(req, res) {
 app.post("/api/register", userRegister)
 app.post("/api/login", loginUser)
 
-app.post(
-    "/api/products", 
+
+app.route("/api/products")
+.post(
     passport.authenticate('jwt', { session: false }), 
     createProduct
 )
+.get(listProducts)
+
+app.route("/api/products/:id")
+.get(passport.authenticate('jwt', { session: false }), getProductById)
+.patch(passport.authenticate('jwt', { session: false }), updateProduct)
+.delete(passport.authenticate('jwt', { session: false }), deleteProductById)
+
+
+// app.post(
+//     "/api/products", 
+//     passport.authenticate('jwt', { session: false }), 
+//     createProduct
+// )
+
 
 // app.get()
 // app.patch()

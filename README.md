@@ -17,7 +17,7 @@
         c. jsonwebtoken
 
     ii. Products
-        a. CRUD endpoints (Create, Retrieve, Update, Delete)
+        a. CRUD endpoints (Create, Retrieve, Update, Delete) [DONE]
 
             Create -- POST
             [Validate request body with Yup]
@@ -51,6 +51,10 @@
 --> Spread Operator
 --> Fetch
 --> Try/Catch
+
+# Express Concepts
+--> File Uploads with Multer.js
+--> Static and Media File Storage
 
 
 

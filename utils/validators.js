@@ -33,3 +33,11 @@ export const productSchema = yup.object({
     noInStock: yup.number().required(),
     price: yup.number().required()
 })
+
+export const updateProductSchema = yup.object({
+    brand: yup.string(),
+    color: yup.string(),
+    size: yup.number(),
+    noInStock: yup.number(),
+    price: yup.number()
+})

@@ -23,6 +23,7 @@ model User {
 
 model Product {
   id        Int @id @default(autoincrement())
+  image     String
   brand     String
   color     String
   size      Int
