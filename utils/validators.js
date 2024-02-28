@@ -11,6 +11,7 @@ import * as yup from 'yup'
 //   }
 
 export const validate = async (validator, data) => {
+    console.log("data", data)
     try {
         const result = await validator.validate(data)
         return [true, {}]

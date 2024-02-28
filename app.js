@@ -1,5 +1,6 @@
 import express, { Router } from "express"
 import cors from "cors"
+import bodyParser from "body-parser"
 import dotenv from "dotenv"
 import { userRegister, loginUser } from "./controllers/user.controller.js"
 import { createProduct, deleteProductById, getProductById, listProducts, updateProduct } from "./controllers/product.controller.js"
@@ -12,6 +13,8 @@ dotenv.config()
 const app = express()
 
 app.use(cors())
+
+app.use(bodyParser.json())
 app.use(express.json())
 app.use(passport.initialize())
 passportAuth(passport)

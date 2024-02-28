@@ -14,6 +14,8 @@ const { sign } = jsonwebtoken
 
 export const userRegister = async (req, res) => {
     const body = req.body;
+    
+    console.log(body)
 
     // Validate data
     const [result, error] = await validate(userSchema, body)
