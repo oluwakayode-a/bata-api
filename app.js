@@ -1,6 +1,7 @@
 import express, { Router } from "express"
 import dotenv from "dotenv"
 import { userRegister, loginUser } from "./controllers/user.controller.js"
+import { createProduct } from "./controllers/product.controller.js"
 import passport from "passport"
 import passportAuth from "./utils/passport-auth.js"
 
@@ -22,6 +23,17 @@ function testAuth(req, res) {
 
 app.post("/api/register", userRegister)
 app.post("/api/login", loginUser)
+
+app.post(
+    "/api/products", 
+    passport.authenticate('jwt', { session: false }), 
+    createProduct
+)
+
+// app.get()
+// app.patch()
+// app.delete()
+
 app.get("/test-auth", passport.authenticate('jwt', { session: false }), testAuth)
 
 

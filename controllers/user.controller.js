@@ -1,8 +1,8 @@
 import { PrismaClient } from "@prisma/client"
 import bcrypt from "bcrypt"
 import { hashPassword } from "../utils/password.js"
-
 import jsonwebtoken from "jsonwebtoken"
+import { validate, userSchema } from "../utils/validators.js"
 
 const client = new PrismaClient()
 const userClient = client.user
@@ -12,6 +12,13 @@ const { sign } = jsonwebtoken
 
 export const userRegister = async (req, res) => {
     const body = req.body;
+
+    // Validate data
+    const [result, error] = await validate(userSchema, body)
+
+    if (!result) {
+        return res.status(400).json(error)
+    }
 
     const password = await hashPassword(body.password)
 

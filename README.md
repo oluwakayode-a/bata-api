@@ -11,12 +11,20 @@
     N.B. For every change made to the schema, run the command above.
 
 -->Build out views and router based on user requirements
-    i. User Register and Login
+    i. User Register and Login (Done)
         a. Bcrypt
         b. Passport.js (JWT Auth) --> install Passport and Passport-jwt
         c. jsonwebtoken
 
     ii. Products
+        a. CRUD endpoints (Create, Retrieve, Update, Delete)
+
+            Create -- POST
+            [Validate request body with Yup]
+            Retrive -- GET
+            Update -- PATCH/PUT
+            Delete -- DELETE
+
     iii. Cart
     iv. Checkout.
 -->Handle CORS
@@ -41,6 +49,8 @@
 --> Closures
 --> TypeScript
 --> Spread Operator
+--> Fetch
+--> Try/Catch
 
 
 
